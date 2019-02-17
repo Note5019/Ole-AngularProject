@@ -18,4 +18,9 @@ export class FormComponent implements OnInit {
     });
   }
 
+  onSubmit(form:FormGroup){
+    console.log(form);
+    
+  }
+
 }
