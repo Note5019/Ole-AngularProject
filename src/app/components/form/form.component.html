@@ -1,17 +1,52 @@
 <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)">
   <div>
     <input type="text" formControlName="firstName" placeholder="first name">
+    <label style="color: tomato;" *ngIf="formGroup.get('firstName').invalid && 
+    formGroup.get('firstName').errors['required'] && 
+    formGroup.get('firstName').touched ">
+      Required!!!
+    </label>
+    <label style="color: tomato;" *ngIf="formGroup.get('firstName').invalid && 
+          formGroup.get('firstName').errors['minlength'] && 
+          formGroup.get('firstName').touched ">
+      Min is 3!!!
+    </label>
   </div>
 
   <div>
-    <input type="text" formControlName="lastName" placeholder="last name">
-  </div>
-
-  <div>
+    <div>
+      <input type="text" formControlName="lastName" placeholder="last name">
+      <label style="color: tomato;" *ngIf="formGroup.get('lastName').invalid && 
+    formGroup.get('lastName').errors['required'] && 
+    formGroup.get('lastName').touched ">
+        Required!!!
+      </label>
+      <label style="color: tomato;" *ngIf="formGroup.get('lastName').invalid && 
+          formGroup.get('lastName').errors['minlength'] && 
+          formGroup.get('lastName').touched ">
+        Min is 3!!!
+      </label>
+    </div>
     <input type="email" formControlName="email" placeholder="E-mail">
+    <label style="color: tomato;" *ngIf="formGroup.get('email').invalid &&
+    formGroup.get('email').errors['email'] &&
+    formGroup.get('email').touched ">
+      E-mail is invalid!!!
+    </label>
   </div>
   <div>
-    <input type="number" formControlName="age" placeholder="22" min="0" max="99">
+    <input type="number" formControlName="age" placeholder="" min="0" max="99">
+    <label style="color: tomato;" *ngIf="formGroup.get('age').invalid &&
+    formGroup.get('age').errors['min'] &&
+    formGroup.get('age').touched ">
+      min!!!
+    </label>
+    <label style="color: tomato;" *ngIf="formGroup.get('age').invalid &&
+    formGroup.get('age').errors['max'] &&
+    formGroup.get('age').touched ">
+      max!!!
+    </label>
   </div>
+
   <button>Submit</button>
 </form>

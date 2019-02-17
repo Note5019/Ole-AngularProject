@@ -1,3 +1,11 @@
-<p>
-  detail works!
-</p>
+<div>
+  First name: {{user? user.firstName : '-'}} 
+  <!-- วิธีการนี้เป็นแบบเต็ม -->
+  <br>
+  Last name: {{user?.lastName || '-' }}
+  <br>
+  E-mail: {{user?.email || '-' }}
+  <br>
+  Age: {{user?.age || 0 }}
+  <br>
+</div>
